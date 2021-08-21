@@ -12,7 +12,7 @@ class WebConfig {
     val httpClient = HttpClient.create()
 
     @Bean
-    fun build(): WebClient {
+    fun WebClient.builder(): WebClient {
         return WebClient.builder()
             .clientConnector(ReactorClientHttpConnector(httpClient))
             .build()
