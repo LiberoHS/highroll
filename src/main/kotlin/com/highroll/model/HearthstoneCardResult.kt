@@ -1,5 +1,5 @@
 package com.highroll.model
 
 data class HearthstoneCardResult(
-    val id: Int
+    val cards: List<Card>?
 )
