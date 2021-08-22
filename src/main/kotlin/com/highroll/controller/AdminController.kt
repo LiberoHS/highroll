@@ -1,5 +1,6 @@
 package com.highroll.controller
 
+import com.highroll.model.DeckClass
 import com.highroll.model.HearthstoneCardResult
 import com.highroll.service.HearthstoneService
 import mu.KotlinLogging
@@ -20,9 +21,9 @@ class AdminController(
     }
 
     @GetMapping("/card/search")
-    fun getDiscoverableCards(@RequestParam card: String, @RequestParam deckClass: String): ResponseEntity<HearthstoneCardResult> {
+    fun getDiscoverableCards(@RequestParam card: String, @RequestParam deckClass: DeckClass): ResponseEntity<HearthstoneCardResult> {
         log.info { "Querying for card: $card" }
-        val res = hearthstoneService.getDiscoverableCards()
+        val res = hearthstoneService.getDiscoverableCards(card, deckClass)
         return ResponseEntity.ok().body(res)
     }
 }

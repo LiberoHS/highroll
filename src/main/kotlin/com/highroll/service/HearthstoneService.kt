@@ -1,12 +1,13 @@
 package com.highroll.service
 
 import com.highroll.client.BlizzardClient
+import com.highroll.db.CardData
 import com.highroll.model.*
-import com.highroll.util.QueryParams
 import mu.KotlinLogging
 import org.springframework.stereotype.Service
 import org.springframework.util.CollectionUtils
 import org.springframework.util.MultiValueMap
+import java.lang.Exception
 
 @Service
 class HearthstoneService(
@@ -16,16 +17,11 @@ class HearthstoneService(
         val log = KotlinLogging.logger {}
     }
 
-    fun getDiscoverableCards(): HearthstoneCardResult? {
-        /* val memes = ManaCostDec("3",
-            MinionTypeDec("beast",
-                StandardBaseQuery("minion", "all")
-            )
-        )
-        val query = memes.buildQuery()
-        val searchParamsMap = buildSearchParameters(query) */
-        // return blizzardClient.getCardQuery(searchParamsMap)
-        return null
+    fun getDiscoverableCards(cardName: String, deckClass: DeckClass): HearthstoneCardResult? {
+        val cardData = CardData.getCardByName(cardName) ?: throw Exception("Not found")
+        val searchParamsMap = buildSearchParameters(cardData.query.buildQuery(deckClass))
+        log.info { "Querying Hearthstone API for card: $cardName, params: $searchParamsMap" }
+        return blizzardClient.getCardQuery(searchParamsMap)
     }
 
     fun buildSearchParameters(params: Map<String, List<String>>): MultiValueMap<String, String> {

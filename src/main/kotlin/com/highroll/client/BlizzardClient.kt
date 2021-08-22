@@ -16,12 +16,10 @@ class BlizzardClient(
     private val webClient = WebClient.create("https://us.api.blizzard.com")
 
     companion object {
-        val log = KotlinLogging.logger {}
         val ACCESS_TOKEN = System.getenv("ACCESS_TOKEN")
     }
 
     fun getCardQuery(params: MultiValueMap<String, String>): HearthstoneCardResult? {
-        log.info { "Querying Hearthstone API" }
         return webClient
             .get()
             .uri(
