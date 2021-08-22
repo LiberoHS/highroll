@@ -27,11 +27,28 @@ enum class CardData(
     PRIMORDIAL_STUDIES("Primordial Studies", KeywordDec("spell damage", BaseQuery("minion", CURRENT_NEUTRAL))),
     TRICK_TOTEM("Trick Totem", ManaCostDec("0,1,2,3", BaseQuery("spell", ALL))),
     WAND_THIEF("Wand Thief", BaseQuery("spell", MAGE)),
-    JANDICE_BAROV("Jandice Barov", ManaCostDec("5", BaseQuery("minion", ALL)));
+    JANDICE_BAROV("Jandice Barov", ManaCostDec("5", BaseQuery("minion", ALL))),
+
+    // Ashes of Outland
+    NETHERWALKER("Netherwalker", MinionTypeDec("demon", BaseQuery("minion", CURRENT_NEUTRAL))),
+    MARSH_HYDRA("Marsh Hydra", ManaCostDec("8", BaseQuery("minion", ALL))),
+    NETHERWIND_PORTAL("Netherwind Portal", ManaCostDec("4", BaseQuery("minion", ALL))),
+    FONT_OF_POWER("Font of Power", BaseQuery("minion", MAGE)),
+    APEXIS_SMUGGLER("Apexis Smuggler", BaseQuery("spell", CURRENT_NEUTRAL)),
+    APEXIS_BLAST("Apexis Blast", ManaCostDec("5", BaseQuery("minion", ALL))),
+    EVOCATION("Evocation", BaseQuery("spell", MAGE)),
+    SOLARIAN_PRIME("Solarian Prime", BaseQuery("spell", MAGE)),
+    UNDERLIGHT_ANGLING_ROD("Underlight Angling Rod", MinionTypeDec("murloc", BaseQuery("minion", CURRENT_NEUTRAL))),
+    MURGURGLE_PRIME("Murgurgle Prime", MinionTypeDec("murloc", BaseQuery("minion", CURRENT_NEUTRAL))),
+    RENEW("Renew", BaseQuery("spell", CURRENT_NEUTRAL)),
+    SETHEKK_VEILWEAVER("Sethekk Veilweaver", BaseQuery("spell", PRIEST)),
+    SKELETAL_DRAGON("Skeletal Dragon", MinionTypeDec("dragon", BaseQuery("minion", CURRENT_NEUTRAL))),
+    MARSHSPAWN("Marshspawn", BaseQuery("spell", CURRENT_NEUTRAL)),
+    SERPENTSHRINE_PORTAL("Serpentshrine Portal", ManaCostDec("3", BaseQuery("minion", ALL))),
+    SHADOW_COUNCIL("Shadow Council", MinionTypeDec("demon", BaseQuery("minion", ALL)));
 
     companion object {
         private val map = values().associateBy { it.cardName }
         fun getCardByName(card: String): CardData? = map[card]
     }
-
 }

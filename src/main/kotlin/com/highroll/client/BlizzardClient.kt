@@ -19,13 +19,14 @@ class BlizzardClient(
         val ACCESS_TOKEN = System.getenv("ACCESS_TOKEN")
     }
 
-    fun getCardQuery(params: MultiValueMap<String, String>): HearthstoneCardResult? {
+    fun getCardQuery(params: MultiValueMap<String, String>, pageNumber: Int): HearthstoneCardResult? {
         return webClient
             .get()
             .uri(
                 UriComponentsBuilder
                     .fromPath("/hearthstone/cards")
                     .queryParam("locale", "en_US")
+                    .queryParam("page", pageNumber.toString())
                     .queryParams(params)
                     .toUriString()
             )

@@ -17,11 +17,23 @@ class HearthstoneService(
         val log = KotlinLogging.logger {}
     }
 
-    fun getDiscoverableCards(cardName: String, deckClass: DeckClass): HearthstoneCardResult? {
+    fun getDiscoverableCards(cardName: String, deckClass: DeckClass): DiscoverResults {
         val cardData = CardData.getCardByName(cardName) ?: throw Exception("Not found")
         val searchParamsMap = buildSearchParameters(cardData.query.buildQuery(deckClass))
         log.info { "Querying Hearthstone API for card: $cardName, params: $searchParamsMap" }
-        return blizzardClient.getCardQuery(searchParamsMap)
+        return queryPagination(searchParamsMap)
+    }
+
+    fun queryPagination(searchParamsMap: MultiValueMap<String, String>): DiscoverResults {
+        val discoverResults = DiscoverResults()
+        var pageNumber = 0
+        do {
+            val response = blizzardClient.getCardQuery(searchParamsMap, pageNumber) ?: throw Exception("Cannot find results in query")
+            discoverResults.addResults(response.cards)
+            pageNumber += 1
+        } while (response.page <= response.pageCount)
+
+        return discoverResults
     }
 
     fun buildSearchParameters(params: Map<String, List<String>>): MultiValueMap<String, String> {
