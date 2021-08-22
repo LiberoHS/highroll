@@ -1,8 +1,7 @@
 package com.highroll.client
 
 import com.highroll.model.HearthstoneCardResult
-import mu.KotlinLogging
-import org.springframework.boot.context.properties.bind.Bindable.mapOf
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
 import org.springframework.util.MultiValueMap
@@ -11,9 +10,10 @@ import org.springframework.web.util.UriComponentsBuilder
 
 @Component
 class BlizzardClient(
+    @Value("\${blizzard.url}") blizzardUrl: String
 ) {
 
-    private val webClient = WebClient.create("https://us.api.blizzard.com")
+    private val webClient = WebClient.create(blizzardUrl)
 
     companion object {
         val ACCESS_TOKEN = System.getenv("ACCESS_TOKEN")

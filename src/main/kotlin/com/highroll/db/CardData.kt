@@ -8,6 +8,41 @@ enum class CardData(
     val query: QueryDecorator
 ) {
 
+    // United in Stormwind
+    CALL_OF_THE_GRAVE("Call of the Grave", KeywordDec("deathrattle", BaseQuery("minion", CURRENT_NEUTRAL))),
+    // TODO: Spy Gizmo
+    TINY_TOYS("Tiny Toys", ManaCostDec("5", BaseQuery("minion", ALL))),
+    // TODO: CHARGED_CALL
+    LADY_PRESTOR("Lady Prestor", MinionTypeDec("dragon", BaseQuery("minion", ALL))),
+    ENTRAPPED_SORCERESS("Entrapped Sorceress", BaseQuery("spell", CURRENT_NEUTRAL)),
+    // TODO: PANDAREN_IMPORTER
+    DEEPRUN_ENGINEER("Deeprun Engineer", MinionTypeDec("mech", BaseQuery("minion", CURRENT_NEUTRAL))),
+    STUBBORN_SUSPECT("Stubborn Suspect", ManaCostDec("3", BaseQuery("minion", ALL))),
+
+    // Miniset: Wailing Caverns
+    // TODO: SAVORY_DEVIATE_DELIGHT
+    // TODO: ARCHDRUID_NARALEX
+    // TODO: ADVENTURERS
+
+    // Forged at the Barrens
+    // TODO: PACK_KODO
+    RUNED_ORB("Runed Orb", BaseQuery("spell", CURRENT_NEUTRAL)),
+    PEON("Peon", BaseQuery("spell", CURRENT_CLASS)),
+    VENOMOUS_SCORPID("Venomous Scorpid", BaseQuery("spell", CURRENT_NEUTRAL)),
+
+    // Miniset: Darkmoon Races
+    // TODO: Verify
+    ILLIDARI_STUDIES("Illidari Studies", KeywordDec("outcast", BaseQuery("", DEMON_HUNTER))),
+    GUIDANCE("Guidance", BaseQuery("spell", CURRENT_NEUTRAL)),
+    // TODO: RESIZING_POUCH
+    SADDLEMASTER("Saddlemaster", MinionTypeDec("beast", BaseQuery("minion", CURRENT_CLASS))),
+    // TODO: KEYWARDEN_IVORY
+
+    // Madness at the Darkmoon Faire
+    MYSTERY_WINNER("Mystery Winner", KeywordDec("secret", BaseQuery("spell", CURRENT_NEUTRAL))),
+    RINLING_RIFLE("Rinling's Rifle", KeywordDec("secret", BaseQuery("spell", CURRENT_NEUTRAL))),
+    RING_TOSS("Ring Toss", KeywordDec("secret", BaseQuery("spell", CURRENT_NEUTRAL))),
+
     // Scholomance Academy
     WANDMAKER("Wandmaker", ManaCostDec("1", BaseQuery("spell", CURRENT_NEUTRAL))),
     STEWARD_OF_SCROLLS("Steward of Scrolls", BaseQuery("spell", CURRENT_NEUTRAL)),

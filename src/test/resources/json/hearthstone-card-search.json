@@ -1,0 +1,37 @@
+{
+  "cards": [
+    {
+      "id": "57217",
+      "name": "Apexis Blast",
+      "text": "Deal 5 damage. If your deck has no minions, summon a random 5-Cost minion.",
+      "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b25ab0491d1fa3672991edf4bf853b0c38460aa57fc5d5ea1c34d7271a79f63a.png"
+    },
+    {
+      "id": "69500",
+      "name": "Arcane Intellect",
+      "text": "Draw 2 cards.",
+      "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0609c0a9644a9a6888c5c39cef2da872cfdff6e3b15ef64c7b20138c7bc949bc.png"
+    },
+    {
+      "id": "59207",
+      "name": "Brain Freeze",
+      "text": "<b>Freeze</b> a minion. <b>Combo:</b> Also deal 3 damage to it.",
+      "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fe1adaf704e9a095a4876ab4f67464f2969a0a5708f3a41383466e12f26322b3.png"
+    },
+    {
+      "id": "59540",
+      "name": "Combustion",
+      "text": "Deal 4 damage to a minion. Any excess damages both neighbors.",
+      "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72867c442dd4b5d5446852d166ee24cf8106c79c33c2929a7d934f3872d748b8.png"
+    },
+    {
+      "id": "69606",
+      "name": "Cone of Cold",
+      "text": "<b>Freeze</b> a minion and the minions next to it, and deal 1 damage to them.",
+      "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/40adb8435419d52e9c0717a2d0f02d5794c034e8ec7a1ed20a2f27e7f1db6280.png"
+    }
+  ],
+  "cardCount": 38,
+  "pageCount": 1,
+  "page": 1
+}

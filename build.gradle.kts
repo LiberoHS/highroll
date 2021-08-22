@@ -28,7 +28,14 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
+    // Testing
+    testImplementation(platform("org.junit:junit-bom:5.7.2"))
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("io.mockk:mockk:1.12.0")
+    testImplementation("com.fasterxml.jackson.core:jackson-databind")
+    testImplementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    testImplementation("org.assertj:assertj-core")
 }
 
 tasks.withType<KotlinCompile> {
@@ -40,4 +47,7 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
 }

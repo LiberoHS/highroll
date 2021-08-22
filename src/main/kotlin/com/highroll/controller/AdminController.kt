@@ -2,7 +2,6 @@ package com.highroll.controller
 
 import com.highroll.model.DeckClass
 import com.highroll.model.DiscoverResults
-import com.highroll.model.HearthstoneCardResult
 import com.highroll.service.HearthstoneService
 import mu.KotlinLogging
 import org.springframework.http.ResponseEntity
@@ -26,5 +25,10 @@ class AdminController(
         log.info { "Querying for card: $card" }
         val res = hearthstoneService.getDiscoverableCards(card, deckClass)
         return ResponseEntity.ok().body(res)
+    }
+
+    @GetMapping("/deck/search")
+    fun searchDeckByCode(@RequestParam deckCode: String) {
+        // TODO: Add deck functionality
     }
 }
