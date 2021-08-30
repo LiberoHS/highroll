@@ -4,6 +4,7 @@ import React from "react";
 import DeckClassForm from "./components/search/deck-class-form";
 import CardSearchBar from "./components/search/card-search-bar";
 import {ServiceProvider} from "./state/service-context";
+import CardSearchResults from "./components/results/card-search-results";
 
 function App() {
     return (
@@ -11,6 +12,7 @@ function App() {
             <Grommet plain>
                 <DeckClassForm/>
                 <CardSearchBar/>
+                <CardSearchResults/>
             </Grommet>
         </ServiceProvider>
     );

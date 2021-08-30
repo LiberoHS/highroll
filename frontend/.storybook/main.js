@@ -1,8 +1,3 @@
-import {withGrommet} from "storybook-addon-grommet";
-import { addDecorator } from '@storybook/react';
-import { grommet, dark } from 'grommet';
-import { black, light, materialdark, materiallight, metro } from 'grommet-controls';
-
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -17,23 +12,3 @@ module.exports = {
     reactDocgen: 'none',
   }
 };
-
-addDecorator(withGrommet({
-      theme: 'grommet',
-      themes: {
-        grommet,
-        dark,
-        black,
-        light,
-        materialdark,
-        materiallight,
-        metro,
-      },
-      boxProps: {
-        align: 'start',
-      },
-      grommetProps: {
-        full: true,
-      }
-    }
-));
