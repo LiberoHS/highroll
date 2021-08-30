@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card, CardFooter, Heading, Image} from 'grommet';
 import {DeckClass} from "../../model/deck-class";
-import {useCurrentDecks} from "../../state/chosen-deck-context";
+import {useCurrentClasses} from "../../state/chosen-deck-context";
 
 interface Props {
     deckClass: DeckClass;
@@ -9,10 +9,10 @@ interface Props {
 
 export default function DeckClassCard(props: Props) {
     const { deckClass } = props;
-    const [, deckActions] = useCurrentDecks();
+    const [, classActions] = useCurrentClasses();
 
     const updateClass = () => {
-        deckActions.updateClass(deckClass);
+        classActions.updateClass(deckClass);
         console.log(deckClass);
     };
 

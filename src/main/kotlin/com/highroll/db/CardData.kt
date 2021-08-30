@@ -42,6 +42,7 @@ enum class CardData(
     MYSTERY_WINNER("Mystery Winner", KeywordDec("secret", BaseQuery("spell", CURRENT_NEUTRAL))),
     RINLING_RIFLE("Rinling's Rifle", KeywordDec("secret", BaseQuery("spell", CURRENT_NEUTRAL))),
     RING_TOSS("Ring Toss", KeywordDec("secret", BaseQuery("spell", CURRENT_NEUTRAL))),
+    PALM_READING("Palm Reading", BaseQuery("spell", CURRENT_NEUTRAL)),
 
     // Scholomance Academy
     WANDMAKER("Wandmaker", ManaCostDec("1", BaseQuery("spell", CURRENT_NEUTRAL))),

@@ -2,24 +2,28 @@ import {createStore, createHook, StoreActionApi} from 'react-sweet-state';
 import {DeckClass} from "../model/deck-class";
 
 interface State {
-    currentDeck: DeckClass | undefined;
+    currentClass: DeckClass | undefined;
 }
 
 type StoreApi = StoreActionApi<State>;
 type Actions = typeof actions;
 
 const initialState: State = {
-    currentDeck: undefined
+    currentClass: undefined
 };
 
 const actions = {
     updateClass: (deck: DeckClass) => ({ setState }: StoreApi) => {
         setState({
-            currentDeck: deck
+            currentClass: deck
         });
     },
     getCurrentClass: () => ({ getState }: StoreApi) => {
-        return getState().currentDeck;
+        return getState().currentClass;
+    },
+    getClassKey: () => ({ getState }: StoreApi) => {
+        const currentClass = getState().currentClass;
+        return currentClass ? currentClass.key : "NEUTRAL";
     },
 };
 
@@ -28,4 +32,4 @@ const Store = createStore<State, Actions>({
     actions
 });
 
-export const useCurrentDecks = createHook(Store);
+export const useCurrentClasses = createHook(Store);

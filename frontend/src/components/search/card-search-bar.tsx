@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import {Box, Button, Grid, Heading, TextInput} from "grommet";
 import {useServices} from "../../state/service-context";
+import {useCurrentClasses} from "../../state/chosen-deck-context";
 
 export default function CardSearchBar() {
     const { hearthstoneService } = useServices();
+    const [, classActions] = useCurrentClasses();
     const [value, setValue] = useState('');
 
     const searchOnKeyPress = async (event: { key: string }) => {
@@ -13,7 +15,8 @@ export default function CardSearchBar() {
     };
 
     const searchCard = async () => {
-        const res = await hearthstoneService.getDiscoverableCards(value, "MAGE");
+        const classKey = classActions.getClassKey();
+        const res = await hearthstoneService.getDiscoverableCards(value, classKey);
         console.log(res);
     };
 
