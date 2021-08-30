@@ -18,7 +18,7 @@ class HearthstoneService(
     }
 
     fun getDiscoverableCards(cardName: String, deckClass: DeckClass): DiscoverResults {
-        val cardData = CardData.getCardByName(cardName) ?: throw Exception("Not found")
+        val cardData = CardData.getCardByName(cardName) ?: throw Exception("Card data not found")
         val searchParamsMap = buildSearchParameters(cardData.query.buildQuery(deckClass))
         log.info { "Querying Hearthstone API for card: $cardName, params: $searchParamsMap" }
         return queryPagination(searchParamsMap)

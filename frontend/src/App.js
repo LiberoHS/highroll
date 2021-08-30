@@ -3,13 +3,16 @@ import { Grommet } from 'grommet';
 import React from "react";
 import DeckClassForm from "./components/search/deck-class-form";
 import CardSearchBar from "./components/search/card-search-bar";
+import {ServiceProvider} from "./state/service-context";
 
 function App() {
     return (
-        <Grommet plain>
-            <DeckClassForm/>
-            <CardSearchBar/>
-        </Grommet>
+        <ServiceProvider>
+            <Grommet plain>
+                <DeckClassForm/>
+                <CardSearchBar/>
+            </Grommet>
+        </ServiceProvider>
     );
 }
 

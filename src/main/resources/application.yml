@@ -1,1 +1,3 @@
 blizzard.url: 'https://us.api.blizzard.com'
+
+oauth.url: 'https://us.battle.net'

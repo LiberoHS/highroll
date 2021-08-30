@@ -1,5 +1,6 @@
 package com.highroll.client
 
+import com.highroll.config.AccessTokenConfig
 import com.highroll.model.HearthstoneCardResult
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.MediaType
@@ -15,11 +16,8 @@ class BlizzardClient(
 
     private val webClient = WebClient.create(blizzardUrl)
 
-    companion object {
-        val ACCESS_TOKEN = System.getenv("ACCESS_TOKEN")
-    }
-
     fun getCardQuery(params: MultiValueMap<String, String>, pageNumber: Int): HearthstoneCardResult? {
+        val ACCESS_TOKEN = AccessTokenConfig.getAccessToken()
         return webClient
             .get()
             .uri(
