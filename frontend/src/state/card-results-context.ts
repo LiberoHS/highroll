@@ -3,19 +3,21 @@ import {HearthstoneCard} from "../model/hearthstone-card";
 
 interface State {
     searchResults: HearthstoneCard[];
+    hasNoResults: boolean;
 }
 
 type StoreApi = StoreActionApi<State>;
 type Actions = typeof actions;
 
 const initialState: State = {
-    searchResults: []
+    searchResults: [],
+    hasNoResults: false
 };
 
 const actions = {
-    updateResults: (cards: HearthstoneCard[]) => ({ setState }: StoreApi) => {
+    updateResults: (cards: HearthstoneCard[] | undefined) => ({ setState }: StoreApi) => {
         setState({
-            searchResults: cards
+            searchResults: cards ? cards : []
         });
     },
     getCards: () => ({ getState }: StoreApi) => {
@@ -23,6 +25,11 @@ const actions = {
     },
     getCardIndex: (idx: number) => ({ getState }: StoreApi) => {
         return getState().searchResults[idx];
+    },
+    cannotFindResult: (bool: boolean) => ({ setState }: StoreApi) => {
+        return setState({
+            hasNoResults: bool
+        });
     },
 };
 
