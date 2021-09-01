@@ -20,7 +20,12 @@ export default function CardSearchBar() {
     const searchCard = async () => {
         const classKey = classActions.getClassKey();
         const response: DiscoverResults = await hearthstoneService.getDiscoverableCards(value, classKey);
-        searchResultActions.updateResults(response.results);
+        if (response == undefined) {
+            searchResultActions.cannotFindResult(true);
+        } else {
+            searchResultActions.cannotFindResult(false);
+            searchResultActions.updateResults(response.results);
+        }
     };
 
     const updateSearchValue = (text: string) => {
